@@ -1,5 +1,13 @@
 import React from 'react';
 
-const App: React.FC = () => <h1>Olá Vitor</h1>;
+import GlobalStyle from './styles/global';
+import User from './pages/users';
+
+const App: React.FC = () => (
+  <>
+    <User />
+    <GlobalStyle />
+  </>
+);
 
 export default App;
