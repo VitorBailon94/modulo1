@@ -1,5 +1,16 @@
 import React from 'react';
+import { FiLogIn } from 'react-icons/fi';
 
-const User: React.FC = () => <h1>User</h1>;
+import { Container, Content, Background } from './styles';
+
+const User: React.FC = () => (
+  <Container>
+    <Content>
+      aaaaaa
+      <FiLogIn />
+    </Content>
+    <Background />
+  </Container>
+);
 
 export default User;
