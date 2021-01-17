@@ -10,12 +10,24 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   display: flex;
-  justify-direction: column;
-
+  flex-direction: column;
+  align-items: center;
   place-content: center;
 
   width: 100%;
   max-width: 700px;
+
+  form {
+    margin: 2% 5% 0 5%;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  form input {
+    width: 100%;
+  }
 `;
 
 export const Background = styled.div`
