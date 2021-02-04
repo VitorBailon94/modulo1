@@ -1,10 +1,12 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useContext } from 'react';
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
 import getValidationsErrors from '../../utils/getValidationsErros';
 import Logo from '../../assets/logo.svg';
+
+import AuthContext from '../../context/AuthContext';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
@@ -17,6 +19,8 @@ interface iData {
 
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
+  const { name } = useContext(AuthContext);
+  console.log(name);
   const handleSubmit = useCallback(async (data: iData) => {
     try {
       formRef.current?.setErrors({});
@@ -24,7 +28,7 @@ const SignIn: React.FC = () => {
         email: Yup.string()
           .required('E-mail obrigatório')
           .email('Digite um e-mail valido'),
-        password: Yup.string().min(6, 'No minimo 5 digitos'),
+        password: Yup.string().required('Senha Obrigatória'),
       });
 
       await schema.validate(data, {
